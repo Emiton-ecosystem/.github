@@ -5,31 +5,39 @@
 Headend, transcoding, statistical multiplexing, playout and delivery — a single
 box instead of a rack. Built by broadcast engineers who run it in production.
 
-**[Website](https://emiton.eu)** · **[Statmux](https://statmux.eu)** · **[Docs](https://transcoder.sk/help)** · **[Demo](https://transcoder.sk/demo)** .  **[Pricing](https://tsc.isptv.sk/pricing/)**
+**[Website](https://emiton.eu)** · **[Statmux](https://emiton.eu/statmux/)** · **[Docs](https://transcoder.sk/help)** · **[Demo](https://transcoder.sk/demo)** · **[Pricing](https://emiton.eu/pricing/)**
 
 ---
 
 ## What it does
 
-| | |
+| Module | |
 |---|---|
-| **Transcoding** | NVENC/NVDEC hardware pipeline. 30+ channels per node on consumer GPUs. |
+| **Transcoding** | NVENC/NVDEC hardware pipeline. 30+ channels per node on a pair of RTX 5070 Ti. |
 | **Statmux** | Software statistical multiplexer with per-frame complexity analysis on CUDA. |
 | **Playout** | Scheduled playout, loop channels, ad insertion, deterministic XMLTV EPG. |
 | **Delivery** | MPEG-TS multicast, HLS, DASH, SRT, RIST. DVB-C/DVB-T output for cable headends. |
-| **Client apps** | White-label RUBIKON apps for Android TV, iOS, Android and web. |
+| **Client apps** | White-label RUBIKON apps for Samsung Tizen, LG webOS, Android TV, mobile, STB and web. |
 | **Billing** | Metron — CRM, invoicing and subscriber management. |
+
+## Running in production
+
+Emiton is not a reference design. It carries the live DVB-C and IPTV service of
+[OSTV](https://ostv.sk) (AS209531), a Slovak cable and internet operator:
+
+**7 transponders** at 256-QAM · **107 services** · DVB-C and OTT delivered in parallel from the same headend.
 
 ## Statmux, measured
 
 Statistical multiplexing is usually a hardware purchase. Emiton does it in
-software, and the numbers hold up against a CBR baseline on the same transponder:
+software, and the numbers hold up against a CBR baseline on the same transponder
+at identical mux bitrate:
 
-- **98.4%** transport stream fill at 37.99 Mbps
+- **98.4%** transport stream fill — 37.99 Mbps of 38.61 Mbps capacity
 - **+3.98 VMAF** on the worst-case channel versus constant bitrate
 - No dedicated multiplexer hardware
 
-Methodology and full measurement data: **[statmux.eu](https://statmux.eu)**
+Methodology and full measurement data: **[statmux page](https://emiton.eu/statmux/)**
 
 ## Who it's for
 
@@ -43,7 +51,9 @@ for a statmux, start with the measurements above.
 
 ## This organization
 
-The platform itself is commercial. What lives here is the open surface around it:
+The Emiton platform is commercial and closed-source. This organization holds the
+open surface around it — the parts you would otherwise have to reverse-engineer
+to integrate with us:
 
 - API specifications and client libraries
 - EPG and XMLTV tooling
@@ -51,7 +61,7 @@ The platform itself is commercial. What lives here is the open surface around it
 - Prometheus exporters and monitoring integrations
 - Deployment automation
 
-MIT licensed, auditable, no black boxes.
+MIT licensed. Issues and pull requests welcome.
 
 ---
 
@@ -62,5 +72,4 @@ MIT licensed, auditable, no black boxes.
 
 ---
 
-<sub>Built by [OSTV](https://ostv.sk), an ISP and broadcast operator in Slovakia (AS209531).
-Also from us: [WebMNG](https://github.com/webmng) — hosting control panel licensed per IP.</sub>
+<sub>Built by <a href="https://ostv.sk">OSTV</a>, an ISP and broadcast operator in Slovakia (AS209531).</sub>
