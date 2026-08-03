@@ -5,7 +5,7 @@
 Headend, transcoding, statistical multiplexing, playout and delivery — a single
 box instead of a rack. Built by broadcast engineers who run it in production.
 
-**[Website](https://emiton.eu)** · **[Statmux](https://statmux.eu)** · **[Docs](https://transcoder.sk/docs)** · **[Demo](https://transcoder.sk/demo)**
+**[Website](https://emiton.eu)** · **[Statmux](https://statmux.eu)** · **[Docs](https://transcoder.sk/help)** · **[Demo](https://transcoder.sk/demo)**
 
 ---
 
